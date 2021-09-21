@@ -4,69 +4,64 @@ var modalBox = document.getElementById("modalBox");
 var img1 = document.getElementById("img1");
 var img2 = document.getElementById("img2");
 
-/* Database */
-var bancoDeFotos = ["url('Images/Capturar1.PNG')", "url('Images/Capturar2.PNG')", "url('Images/Capturar3.PNG')", "url('Images/Capturar4.PNG')", "url('Images/Capturar5.PNG')", "url('Images/Capturar6.PNG')", "url('Images/Capturar7.PNG')", "url('Images/Capturar8.PNG')", "url('Images/Capturar9.PNG')", "url('Images/Capturar10.PNG')", "url('Images/Capturar11.PNG')", "url('Images/Capturar12.PNG')", "url('Images/Capturar13.PNG')", "url('Images/Capturar14.PNG')", "url('Images/Capturar15.PNG')", "url('Images/Capturar16.PNG')", "url('Images/Capturar17.PNG')", "url('Images/Capturar18.PNG')", "url('Images/Capturar19.PNG')", "url('Images/Capturar20.PNG')", "url('Images/Capturar21.PNG')", "url('Images/Capturar22.PNG')", "url('Images/Capturar23.PNG')", "url('Images/Capturar24.PNG')", "url('Images/Capturar25.PNG')", "url('Images/Capturar26.PNG')", "url('Images/Capturar27.PNG')", "url('Images/Capturar28.PNG')", "url('Images/Capturar29.PNG')", "url('Images/Capturar30.PNG')"];
-
-var numFotos = bancoDeFotos.length;
-var placar = new Array(numFotos).fill(0);
-var countRodada = 0;
-var armazenaX = [];
-var x;
-var armazenaY = [];
-var y;
+var countVotes = 0;
+var storeFirstImage = [];
+var firstImage;
+var storeSecondImage = [];
+var secondImage;
 
 function calcRandom() {
-    return Math.floor(Math.random() * numFotos);
+    return Math.floor(Math.random() * bancoDeFotos.length);
 }
 
 function addPhoto() {
-    x = calcRandom();
-    y = calcRandom();
-    if (x == y) {
-        while (x == y) {
-            x = calcRandom();
-            y = calcRandom();
+    firstImage = calcRandom();
+    secondImage = calcRandom();
+    if (firstImage == secondImage) {
+        while (firstImage == secondImage) {
+            firstImage = calcRandom();
+            secondImage = calcRandom();
         }
     }
-    img1.style.backgroundImage = bancoDeFotos[x];
-    img2.style.backgroundImage = bancoDeFotos[y];
+    img1.style.backgroundImage = bancoDeFotos[firstImage].img;
+    img2.style.backgroundImage = bancoDeFotos[secondImage].img;
 }
 
 function clickImg(ev) {
-    armazenaX[countRodada] = x;
-    armazenaY[countRodada] = y;
-    countRodada++;
+    storeFirstImage[countVotes] = firstImage;
+    storeSecondImage[countVotes] = secondImage;
+    countVotes++;
     switch (ev.target.id) {
         case "img1":
-            placar[x]++;
-            placar[y]--;
-            y = calcRandom();
+            bancoDeFotos[firstImage].score++;
+            bancoDeFotos[secondImage].score--;
+            secondImage = calcRandom();
             validateConditions("img1");
-            img2.style.backgroundImage = bancoDeFotos[y];
+            img2.style.backgroundImage = bancoDeFotos[secondImage].img;
             break;
         case "img2":
-            placar[y]++;
-            placar[x]--;
-            x = calcRandom();
+            bancoDeFotos[secondImage].score++;
+            bancoDeFotos[firstImage].score--;
+            firstImage = calcRandom();
             validateConditions("img2");
-            img1.style.backgroundImage = bancoDeFotos[x];
+            img1.style.backgroundImage = bancoDeFotos[firstImage].img;
             break;
     }
 }
 
 function validateConditions(img) {
     var loopCounter = 0;
-    for (let i = 0; i < countRodada; i++) {
-        if ((x == armazenaX[i] && y == armazenaY[i]) || x == y) {
-            while ((x == armazenaX[i] && y == armazenaY[i]) || x == y) {
+    for (let i = 0; i < countVotes; i++) {
+        if ((firstImage == storeFirstImage[i] && secondImage == storeSecondImage[i]) || firstImage == secondImage) {
+            while ((firstImage == storeFirstImage[i] && secondImage == storeSecondImage[i]) || firstImage == secondImage) {
                 if (img == "img1") {
-                    y = calcRandom();
+                    secondImage = calcRandom();
                 } else if (img == "img2") {
-                    x = calcRandom();
+                    firstImage = calcRandom();
                 }
                 i = 0;
                 loopCounter++;
-                if (loopCounter > countRodada) {
+                if (loopCounter > countVotes) {
                     openRanking();
                     break;
                 }

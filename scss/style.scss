@@ -1,4 +1,6 @@
+/* DECLARATIONS */
 $theme: firebrick;
+$font-theme: #FFFFFF;
 
 @mixin mobile-screen {
     @media (max-width: 767.98px) { @content; }
@@ -12,6 +14,7 @@ $theme: firebrick;
     @media (min-width: 1200px) and (max-width: 1980px) { @content; }
 }
 
+/* PRESETS */
 * {
     margin: 0;
     padding: 0;
@@ -19,7 +22,11 @@ $theme: firebrick;
     font-size: 100%;
     font-family: 'Raleway', sans-serif;
 }
+body {
+    overflow: hidden;
+}
 
+/* HEADER */
 .header {
     position: fixed;
     top: 0;
@@ -30,7 +37,7 @@ $theme: firebrick;
 
     &__logo {
         text-align: center;
-        color: white;
+        color: $font-theme;
         display: block;
         font-size: 35px;
         cursor: pointer;
@@ -45,7 +52,7 @@ $theme: firebrick;
     }
     
     &__ranking {
-        color: white;
+        color: $font-theme;
         font-size: 18px;
         float: right;
         text-align: center;
@@ -63,6 +70,56 @@ $theme: firebrick;
     }
 }
 
+/* IMAGE DUEL */
+.photomash-screen {
+
+    &__container {
+        margin-top: 50px;
+        text-align: center;
+        vertical-align: middle;
+        @include tablet-screen {
+            margin-top: 30px;
+        }
+    }
+
+    &__title {
+        font-size: 2.5vw;
+        margin-top: 100px;
+        @include tablet-screen {
+            font-size: 3.5vw;
+            margin-top: 80px;
+        }
+    }
+
+    #img1, #img2 {
+        display: inline-block;
+        width: 25%;
+        border: 2px solid $theme;
+        cursor: pointer;
+        vertical-align: middle; // Resolveu o problema do alinhamento central do "X"
+        background-repeat:no-repeat;
+        background-size: cover;
+        &:after {
+            content: "";
+            display: block;
+            padding-bottom: 100%;
+        }
+        @include tablet-screen {
+            width: 35%;
+        }
+    }
+
+    &__x {
+        font-size: 1.5em;
+        margin-left: 3%;
+        margin-right: 3%;
+        @include tablet-screen {
+            font-size: 1em;
+        }
+    }
+}
+
+/* RANKING */
 .ranking-screen {
     padding-top: 90px;
 
@@ -81,84 +138,4 @@ $theme: firebrick;
         margin-left: 20px;
         float: right;
     }
-}
-
-/* ADJUST THE CSS */
-
-div.container {
-    margin-top: 50px;
-    text-align: center;
-    vertical-align: middle;
-    @include tablet-screen {
-        margin-top: 30px;
-    }
-}
-h1#top {
-    font-size: 2.5vw;
-    margin-top: 100px;
-    @include tablet-screen {
-        font-size: 3.5vw;
-        margin-top: 80px;
-    }
-}
-div#img1, div#img2 {
-    display: inline-block;
-    width: 25%;
-    border: 2px solid $theme;
-    cursor: pointer;
-    vertical-align: middle; // Resolveu o problema do alinhamento central do "X"
-    @include tablet-screen {
-        width: 35%;
-    }
-}
-div#img1:after, div#img2:after {
-    content: "";
-    display: block;
-    padding-bottom: 100%;
-}
-div#img1 {
-    background-repeat:no-repeat;
-    background-size: cover;
-}
-div#img2 {
-    background-repeat:no-repeat;
-    background-size: cover;
-}
-span#x {
-    font-size: 1.5em;
-    margin-left: 3%;
-    margin-right: 3%;
-    @include tablet-screen {
-        font-size: 1em;
-    }
-}
-div#modal {
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    background-color: rgba(0, 0, 0, 0.8);
-    display: none;
-}
-div#modalBox {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 50%;
-    min-height: 50px;
-    background-color: white;
-    border: none;
-    border-radius: 10px;
-    padding: 10px 15px;
-    transform: translate(-50%, -50%);
-    overflow: hidden;
-}
-a#closeModal {
-    color: white;
-    font-size: 24px;
-    position: absolute;
-    top: 10px;
-    right: 20px;
-    text-decoration: none;
 }

@@ -10,31 +10,30 @@
 </head>
 
 <body>
-
     <header class="header">
         <div>
             <span class="header__logo">Picturemash</span>
             <span class="header__ranking">Ranking</span>
         </div>
     </header>
-
+    
     <main class="photomash-screen">
-        <div class="container">
-            <h1 id="top">Two enter but only one exits. Choose the best!</h1>
+        <div class="photomash-screen__container">
+            <h1 class="photomash-screen__title">Two enter but only one exits. Choose the best!</h1>
         </div>
 
-        <div class="container">
+        <div class="photomash-screen__container">
             <div id="img1" name="1"></div>
-            <span id="x"><strong>X</strong></span>
+            <span class="photomash-screen__x"><strong>X</strong></span>
             <div id="img2" name="2"></div>
         </div>
     </main>
 
     <div class="ranking-screen"></div>
 
+    <script src="js/database.js"></script>
     <script src="js/dynamics.js"> </script>
     <script src="js/ranking.js"></script>
-
 </body>
 
 </html>
