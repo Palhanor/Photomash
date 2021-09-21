@@ -3,13 +3,10 @@
   padding: 0;
   box-sizing: border-box;
   font-size: 100%;
-}
-
-body {
   font-family: "Raleway", sans-serif;
 }
 
-nav#navbar {
+.header {
   position: fixed;
   top: 0;
   padding-top: 15px;
@@ -17,16 +14,26 @@ nav#navbar {
   width: 100%;
   background-color: firebrick;
 }
-
-span#logoName {
+.header__logo {
   text-align: center;
   color: white;
   display: block;
   font-size: 35px;
   cursor: pointer;
 }
-
-#ranking {
+@media (max-width: 767.98px) {
+  .header__logo {
+    text-align: left;
+    margin-left: 30px;
+    font-size: 20px;
+  }
+}
+@media (min-width: 768px) and (max-width: 1199.98px) {
+  .header__logo {
+    font-size: 24px;
+  }
+}
+.header__ranking {
   color: white;
   font-size: 18px;
   float: right;
@@ -36,19 +43,58 @@ span#logoName {
   right: 50px;
   cursor: pointer;
 }
-
-.top-50 {
-  margin-top: 50px;
+@media (max-width: 767.98px) {
+  .header__ranking {
+    top: 15px;
+    right: 30px;
+  }
+}
+@media (min-width: 768px) and (max-width: 1199.98px) {
+  .header__ranking {
+    top: 20px;
+  }
 }
 
+.ranking-screen {
+  padding-top: 90px;
+}
+.ranking-screen__box {
+  margin-bottom: 5px;
+  padding: 30px;
+}
+.ranking-screen__box:not(:last-child) {
+  border-bottom: 1px solid lightgray;
+}
+.ranking-screen__image {
+  width: 100px;
+}
+.ranking-screen__text {
+  font-size: 30px;
+  margin-left: 20px;
+  float: right;
+}
+
+/* ADJUST THE CSS */
 div.container {
+  margin-top: 50px;
   text-align: center;
   vertical-align: middle;
+}
+@media (min-width: 768px) and (max-width: 1199.98px) {
+  div.container {
+    margin-top: 30px;
+  }
 }
 
 h1#top {
   font-size: 2.5vw;
   margin-top: 100px;
+}
+@media (min-width: 768px) and (max-width: 1199.98px) {
+  h1#top {
+    font-size: 3.5vw;
+    margin-top: 80px;
+  }
 }
 
 div#img1, div#img2 {
@@ -57,6 +103,11 @@ div#img1, div#img2 {
   border: 2px solid firebrick;
   cursor: pointer;
   vertical-align: middle;
+}
+@media (min-width: 768px) and (max-width: 1199.98px) {
+  div#img1, div#img2 {
+    width: 35%;
+  }
 }
 
 div#img1:after, div#img2:after {
@@ -79,6 +130,11 @@ span#x {
   font-size: 1.5em;
   margin-left: 3%;
   margin-right: 3%;
+}
+@media (min-width: 768px) and (max-width: 1199.98px) {
+  span#x {
+    font-size: 1em;
+  }
 }
 
 div#modal {
@@ -112,55 +168,6 @@ a#closeModal {
   top: 10px;
   right: 20px;
   text-decoration: none;
-}
-
-#ranking-screen {
-  padding-top: 90px;
-}
-
-.ranking-box {
-  margin-bottom: 5px;
-  padding: 30px;
-}
-.ranking-box:not(:last-child) {
-  border-bottom: 1px solid lightgray;
-}
-
-.ranking-image {
-  width: 100px;
-}
-
-.ranking-text {
-  font-size: 30px;
-  margin-left: 20px;
-  float: right;
-}
-
-@media (max-width: 900px) {
-  span#logoName {
-    font-size: 25px;
-  }
-
-  #ranking {
-    top: 20px;
-  }
-
-  h1#top {
-    font-size: 3.5vw;
-    margin-top: 80px;
-  }
-
-  div#img1, div#img2 {
-    width: 35%;
-  }
-
-  span#x {
-    font-size: 1em;
-  }
-
-  .top-50 {
-    margin-top: 30px;
-  }
 }
 
 /*# sourceMappingURL=style.css.map */
