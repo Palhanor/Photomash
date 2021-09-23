@@ -1,25 +1,12 @@
-/* DECLARATIONS */
-$theme: firebrick;
-$font-theme: #FFFFFF;
-
-@mixin mobile-screen {
-    @media (max-width: 767.98px) { @content; }
-}
-
-@mixin tablet-screen {
-    @media (min-width: 768px) and (max-width: 1199.98px) { @content; }
-}
-
-@mixin desktop-screen {
-    @media (min-width: 1200px) and (max-width: 1980px) { @content; }
-}
+// IMPORTS
+@import 'declarations.scss';
 
 /* PRESETS */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-size: 100%;
+    font-size: $font-size-native;
     font-family: 'Raleway', sans-serif;
 }
 body {
@@ -39,21 +26,21 @@ body {
         text-align: center;
         color: $font-theme;
         display: block;
-        font-size: 35px;
+        font-size: font-resize(2.2);
         cursor: pointer;
         @include mobile-screen {
             text-align: left;
             margin-left: 30px;
-            font-size: 20px;
+            font-size: font-resize(1.25);
         }
         @include tablet-screen {
-            font-size: 24px;
+            font-size: font-resize(1.5);
         }
     }
     
     &__ranking {
         color: $font-theme;
-        font-size: 18px;
+        font-size: font-resize(1.1);
         float: right;
         text-align: center;
         position: absolute;
@@ -83,38 +70,32 @@ body {
     }
 
     &__title {
-        font-size: 2.5vw;
+        font-size: font-resize(2);
         margin-top: 100px;
+        @include mobile-screen {
+            font-size: font-resize(1.5);
+            margin-top: 80px;
+        }
         @include tablet-screen {
-            font-size: 3.5vw;
+            font-size: font-resize(1.8);
             margin-top: 80px;
         }
     }
 
-    #img1, #img2 {
-        display: inline-block;
-        width: 25%;
-        border: 2px solid $theme;
-        cursor: pointer;
-        vertical-align: middle; // Resolveu o problema do alinhamento central do "X"
-        background-repeat:no-repeat;
-        background-size: cover;
-        &:after {
-            content: "";
-            display: block;
-            padding-bottom: 100%;
-        }
-        @include tablet-screen {
-            width: 35%;
-        }
+    #img1 {
+        @extend %img-style;
+    }
+    
+    #img2 {
+        @extend %img-style;
     }
 
     &__x {
-        font-size: 1.5em;
+        font-size: font-resize(1.5);
         margin-left: 3%;
         margin-right: 3%;
         @include tablet-screen {
-            font-size: 1em;
+            font-size: font-resize(1);
         }
     }
 }
@@ -134,7 +115,7 @@ body {
         width: 100px;
     }
     &__text {
-        font-size: 30px;
+        font-size: font-resize(1.85);
         margin-left: 20px;
         float: right;
     }

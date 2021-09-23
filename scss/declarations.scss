@@ -1,0 +1,42 @@
+// VARIABLES
+$theme: firebrick;
+$font-theme: #FFFFFF;
+$font-size-native: 16px;
+
+// MIXINS
+@mixin mobile-screen {
+    @media (max-width: 767.98px) { @content; }
+}
+@mixin tablet-screen {
+    @media (min-width: 768px) and (max-width: 1199.98px) { @content; }
+}
+@mixin desktop-screen {
+    @media (min-width: 1200px) and (max-width: 1980px) { @content; }
+}
+
+// FUNCTIONS
+@function font-resize($multiplier) {
+    @return round($multiplier * $font-size-native);
+}
+
+//PLACEHOLDERS
+%img-style {
+    display: inline-block;
+    width: 25%;
+    border: 2px solid $theme;
+    cursor: pointer;
+    vertical-align: middle; // Resolveu o problema do alinhamento central do "X"
+    background-repeat:no-repeat;
+    background-size: cover;
+    &:after {
+        content: "";
+        display: block;
+        padding-bottom: 100%;
+    }
+    @include mobile-screen {
+        width: 40%;
+    }
+    @include tablet-screen {
+        width: 30%;
+    }
+}
