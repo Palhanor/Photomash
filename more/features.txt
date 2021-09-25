@@ -1,9 +1,0 @@
-CONCEITO: Para cada valor "X" haverão n valores "Y", sendo cada valor unico e gerado aleatóriamente entre 0 e n, assim como para cada "Y" haverão n "X" gerados sob as mesmas condições, considerando-se ainda a inviabilidade de "X" ser igual a "Y" e vice-versa. Esta condição tem como numero de possibilidades a soma: n + (n-1) + (n-2) + (n-3) ... + 0
-
-Facemash: https://www.metro.us/everything-to-know-about-facemash-the-site-zuckerberg-created-in-college-to-rank-hot-women/
-
-1 - Exibir ranking por ordem de pontuação
-2 - Melhorar o design
-3 - Criar relação com uma API com as imagens
-4 - Criar uma versão mobile
-5 - Permitir o upload de conteúdo

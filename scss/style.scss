@@ -15,44 +15,47 @@ body {
 
 /* HEADER */
 .header {
-    position: fixed;
-    top: 0;
-    padding-top: 15px;
-    padding-bottom: 15px;
+    display: flex;
+    justify-content: space-between;
+    padding: 15px;
     width: 100%;
     background-color: $theme;
 
     &__logo {
-        text-align: center;
-        color: $font-theme;
-        display: block;
-        font-size: font-resize(2.2);
-        cursor: pointer;
-        @include mobile-screen {
-            text-align: left;
-            margin-left: 30px;
-            font-size: font-resize(1.25);
-        }
-        @include tablet-screen {
-            font-size: font-resize(1.5);
+        margin-left: 50%;
+        transform: translateX(-50%);
+
+        span {
+            text-align: center;
+            color: $font-theme;
+            display: block;
+            font-size: font-resize(2.2);
+            cursor: pointer;
+            @include mobile-screen {
+                margin-left: 30px;
+                font-size: font-resize(1.25);
+            }
+            @include tablet-screen {
+                font-size: font-resize(1.5);
+            }
         }
     }
     
-    &__ranking {
+    &__navbar {
+        list-style: none;
         color: $font-theme;
         font-size: font-resize(1.1);
-        float: right;
         text-align: center;
-        position: absolute;
-        top: 25px;
-        right: 50px;
         cursor: pointer;
+        margin: 10px 10px 0 10px;
         @include mobile-screen {
-            top: 15px;
-            right: 30px;
+            margin: 3px 10px 0 10px;
         }
         @include tablet-screen {
-            top: 20px;
+            margin: 5px 10px 0 10px;
+        }
+        &:last-child {
+            margin-right: 50px;
         }
     }
 }
@@ -61,7 +64,7 @@ body {
 .photomash-screen {
 
     &__container {
-        margin-top: 50px;
+        margin-top: 40px;
         text-align: center;
         vertical-align: middle;
         @include tablet-screen {
@@ -71,14 +74,14 @@ body {
 
     &__title {
         font-size: font-resize(2);
-        margin-top: 100px;
+        margin-top: 10px;
         @include mobile-screen {
             font-size: font-resize(1.5);
-            margin-top: 80px;
+            margin-top: 20px;
         }
         @include tablet-screen {
             font-size: font-resize(1.8);
-            margin-top: 80px;
+            margin-top: 20px;
         }
     }
 
@@ -102,21 +105,26 @@ body {
 
 /* RANKING */
 .ranking-screen {
-    padding-top: 90px;
+    padding-top: 40px;
 
     &__box {
-        margin-bottom: 5px;
-        padding: 30px;
+        padding: 10px 20px;
+        display: flex;
+        margin-left: auto;
+        margin-right: auto;
+        width: 300px;
+        justify-content: space-between;
+        align-items: center;
+        border: 1px solid darkgray;
         &:not(:last-child) {
-            border-bottom: 1px solid lightgray;
+            border-bottom: none;
         }
     }
     &__image {
-        width: 100px;
+        width: 60px;
     }
     &__text {
-        font-size: font-resize(1.85);
+        font-size: font-resize(1.35);
         margin-left: 20px;
-        float: right;
     }
 }
