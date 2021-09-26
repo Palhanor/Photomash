@@ -1,0 +1,41 @@
+.photomash-screen {
+
+    &__container {
+        margin-top: 40px;
+        text-align: center;
+        vertical-align: middle;
+        @include tablet-screen {
+            margin-top: 30px;
+        }
+    }
+
+    &__title {
+        font-size: font-resize(2);
+        margin-top: 10px;
+        @include mobile-screen {
+            font-size: font-resize(1.5);
+            margin-top: 20px;
+        }
+        @include tablet-screen {
+            font-size: font-resize(1.8);
+            margin-top: 20px;
+        }
+    }
+
+    #img1 {
+        @extend %img-style;
+    }
+    
+    #img2 {
+        @extend %img-style;
+    }
+
+    &__x {
+        font-size: font-resize(1.5);
+        margin-left: 3%;
+        margin-right: 3%;
+        @include tablet-screen {
+            font-size: font-resize(1);
+        }
+    }
+}

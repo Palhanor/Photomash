@@ -1,0 +1,24 @@
+.ranking-screen {
+    padding-top: 40px;
+
+    &__box {
+        padding: 10px 20px;
+        display: flex;
+        margin-left: auto;
+        margin-right: auto;
+        width: 300px;
+        justify-content: space-between;
+        align-items: center;
+        border: 1px solid darkgray;
+        &:not(:last-child) {
+            border-bottom: none;
+        }
+    }
+    &__image {
+        width: 60px;
+    }
+    &__text {
+        font-size: font-resize(1.35);
+        margin-left: 20px;
+    }
+}

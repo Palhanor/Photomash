@@ -1,0 +1,45 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px;
+    width: 100%;
+    background-color: $theme;
+
+    &__logo {
+        margin-left: 50%;
+        transform: translateX(-50%);
+
+        span {
+            text-align: center;
+            color: $font-theme;
+            display: block;
+            font-size: font-resize(2.2);
+            cursor: pointer;
+            @include mobile-screen {
+                margin-left: 30px;
+                font-size: font-resize(1.25);
+            }
+            @include tablet-screen {
+                font-size: font-resize(1.5);
+            }
+        }
+    }
+    
+    &__navbar {
+        list-style: none;
+        color: $font-theme;
+        font-size: font-resize(1.1);
+        text-align: center;
+        cursor: pointer;
+        margin: 10px 10px 0 10px;
+        @include mobile-screen {
+            margin: 3px 10px 0 10px;
+        }
+        @include tablet-screen {
+            margin: 5px 10px 0 10px;
+        }
+        &:last-child {
+            margin-right: 50px;
+        }
+    }
+}
