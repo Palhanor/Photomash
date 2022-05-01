@@ -1,4 +1,4 @@
-var bancoDeFotos = [
+var database = [
     {
         img: "url('Images/Capturar1.PNG')",
         score: 0

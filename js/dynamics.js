@@ -11,7 +11,7 @@ var storeSecondImage = [];
 var secondImage;
 
 function calcRandom() {
-    return Math.floor(Math.random() * bancoDeFotos.length);
+    return Math.floor(Math.random() * database.length);
 }
 
 function addPhoto() {
@@ -23,8 +23,8 @@ function addPhoto() {
             secondImage = calcRandom();
         }
     }
-    img1.style.backgroundImage = bancoDeFotos[firstImage].img;
-    img2.style.backgroundImage = bancoDeFotos[secondImage].img;
+    img1.style.backgroundImage = database[firstImage].img;
+    img2.style.backgroundImage = database[secondImage].img;
 }
 
 function clickImg(ev) {
@@ -33,18 +33,18 @@ function clickImg(ev) {
     countVotes++;
     switch (ev.target.id) {
         case "img1":
-            bancoDeFotos[firstImage].score++;
-            bancoDeFotos[secondImage].score--;
+            database[firstImage].score++;
+            database[secondImage].score--;
             secondImage = calcRandom();
             validateConditions("img1");
-            img2.style.backgroundImage = bancoDeFotos[secondImage].img;
+            img2.style.backgroundImage = database[secondImage].img;
             break;
         case "img2":
-            bancoDeFotos[secondImage].score++;
-            bancoDeFotos[firstImage].score--;
+            database[secondImage].score++;
+            database[firstImage].score--;
             firstImage = calcRandom();
             validateConditions("img2");
-            img1.style.backgroundImage = bancoDeFotos[firstImage].img;
+            img1.style.backgroundImage = database[firstImage].img;
             break;
     }
 }

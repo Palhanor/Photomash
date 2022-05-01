@@ -8,8 +8,8 @@ var scoreRanking = [];
 function openRanking() {
     // Create an copy of the database
     scoreRanking = [];
-    for (let i = 0; i < bancoDeFotos.length; i++) {
-        scoreRanking.push(bancoDeFotos[i]);
+    for (let i = 0; i < database.length; i++) {
+        scoreRanking.push(database[i]);
     }
     // Sort the new database by score
     scoreRanking.sort((a, b) => b.score - a.score);
